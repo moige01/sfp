@@ -1,0 +1,8 @@
+COMMANDS
+========
+
+SUSCRIBE <CHANNEL_ID:INT>
+    Suscribe a client to given channel. A single client MAY suscribe to multiples channels at same time. When a client send a file over a channel, every single clients subscribed MUST have to receieve the target file.
+
+SEND <CHANNEL_ID:INT> <CONTENT_SIZE:INT> <DATA:{FILEPATH,STDIN}>
+    Send data to specified channel.
