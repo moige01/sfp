@@ -64,7 +64,7 @@ func init() {
 }
 
 func CreateServer() {
-	l, err := net.Listen(CONN_TYPE, fmt.Sprintf("%s:%s", CONN_HOST, CONN_PORT))
+	l, err := net.Listen(CONN_TYPE, fmt.Sprintf("%v:%v", CONN_HOST, CONN_PORT))
 
 	if err != nil {
 		loggin.Error.Fatalln(err.Error())
@@ -72,7 +72,7 @@ func CreateServer() {
 
 	defer l.Close()
 
-	loggin.Info.Printf("Listening on %s:%s", CONN_HOST, CONN_PORT)
+	loggin.Info.Printf("Listening on %v:%v", CONN_HOST, CONN_PORT)
 
 	for {
 		loggin.Info.Print("Waiting for new connection...")

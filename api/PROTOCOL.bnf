@@ -1,0 +1,7 @@
+<channel_id> ::= <number>
+<content_size> ::= <number>
+<pathname> ::= <string>
+
+<string> ::= <char> | <char><string>
+<char> ::= any of the 128 ASCII characters except <CR> and <LF>
+<number> ::= any decimal integer 1 through 255

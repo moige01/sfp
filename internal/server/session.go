@@ -25,14 +25,14 @@ type Session struct {
 func NewSession(conn net.Conn) *Session {
 	atomic.AddInt64(&atmid, 1)
 
-	loggin.Info.Printf("Creating new sesion with ID %d for address %s", atmid, conn.RemoteAddr())
+	loggin.Info.Printf("Creating new sesion with ID %v for address %v", atmid, conn.RemoteAddr())
 
 	return &Session{id: atmid, conn: conn}
 }
 
 // Close connection for this session.
 func (s *Session) Close() {
-	loggin.Info.Printf("Closing connection #%d...\n", s.id)
+	loggin.Info.Printf("Closing connection #%v...\n", s.id)
 
 	s.conn.Write([]byte("BYE!"))
 
@@ -56,9 +56,9 @@ READ_LOOP:
 		case io.EOF:
 			break READ_LOOP
 		case nil:
-			loggin.Debug.Printf("Receive: %s", data)
+			loggin.Debug.Printf("Receive: %#v", data)
 		default:
-			loggin.Error.Printf("Receive data failed: %s", err)
+			loggin.Error.Printf("Receive data failed: %#v", err)
 		}
 	}
 }
